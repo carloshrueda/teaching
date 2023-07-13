@@ -2,7 +2,7 @@
 
 import json
 
-with open("Ciclo 1/codigo/archivos-json/lista.json", "r") as archivo:
+with open("Campus Lab/Ciclo 1/codigo/archivos-json/lista.json", "r") as archivo:
     lista = json.load(archivo)
     
 if not archivo.closed:

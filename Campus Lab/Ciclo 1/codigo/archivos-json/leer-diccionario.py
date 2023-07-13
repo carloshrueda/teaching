@@ -2,7 +2,7 @@
 
 import json
 
-with open("Ciclo 1/codigo/archivos-json/diccionario.json", "r") as archivo:
+with open("Campus Lab/Ciclo 1/codigo/archivos-json/diccionario.json", "r") as archivo:
     midic = json.load(archivo)
     
 if not archivo.closed:
@@ -10,4 +10,4 @@ if not archivo.closed:
     archivo.close()
 
 print("Diccionario:", midic)
-print("\nDiccionario[3]:", midic["3"])
+print("\nDiccionario[influencers][1][name]:", midic["influencers"][1]["name"])

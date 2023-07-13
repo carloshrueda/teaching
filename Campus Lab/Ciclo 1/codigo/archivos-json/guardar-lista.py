@@ -4,7 +4,7 @@ import json
 
 lista = [10, 20, 30, 40, 60]
 
-with open("Ciclo 1/codigo/archivos-json/lista.json", "w") as archivo:
+with open("Campus Lab/Ciclo 1/codigo/archivos-json/lista.json", "w") as archivo:
     json.dump(lista, archivo)
     print("Se ha escrito en disco")
     
