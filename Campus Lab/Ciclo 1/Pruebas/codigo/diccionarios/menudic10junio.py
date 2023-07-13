@@ -48,7 +48,9 @@ Sino no desea, vuelve al menú. Si desea salir de la aplicación muestra un mens
 el programa."""
 nominacme = {}
 agregarempleado = {}
-#PROGRAMA GENERAL
+# PROGRAMA GENERAL
+
+
 def leerInt(msg):
     while True:
         try:
@@ -61,68 +63,97 @@ def leerInt(msg):
         except ValueError:
             print("Error! Ingrese un numero valido")
 
+
 def msgError(msg):
     print("----> ¡ERROR!" + msg)
     input("---> Presione ENTER para continuar")
 
-#MENU ELEGIR PROGRANA
-def menu():
-        print("\n---------------")
-        print(" NOMINA ACME MENU: ")
-        print("----------------\n")
-        print("1.Agregar empleado ")
-        print("2.Modificar empleado ")
-        print("3.Buscar empleado ")
-        print("4.Eliminar empleado ")
-        print("5.Listar empleados ")
-        print("6.Listar nomina de un empleado ")
-        print("7.Listar nomina de todos los empleados")
-        print("8.Salir ")
-        print(">> Escoja una opcion (1-8)?")
-        elegirop = leerInt ("\n>> Opcion (1 a 8)? ")
-        if elegirop < 1 or elegirop > 8:
-            msgError("Ingrese una opcion valida")
-        return elegirop
+# MENU ELEGIR PROGRANA
 
-def Agregar_empleado():
+
+def menu():
+    print("\n---------------")
+    print(" NOMINA ACME MENU: ")
+    print("----------------\n")
+    print("1.Agregar empleado ")
+    print("2.Modificar empleado ")
+    print("3.Buscar empleado ")
+    print("4.Eliminar empleado ")
+    print("5.Listar empleados ")
+    print("6.Listar nomina de un empleado ")
+    print("7.Listar nomina de todos los empleados")
+    print("8.Salir ")
+    print(">> Escoja una opcion (1-8)?")
+    elegirop = leerInt("\n>> Opcion (1 a 8)? ")
+    if elegirop < 1 or elegirop > 8:
+        msgError("Ingrese una opcion valida")
+    return elegirop
+
+
+def Agregar_empleado(ruta):
     """1. Agregar empleado: Esta opción permite adicionar un empleado con su id, nombre, horas trabajadas y
 valor de la hora. Los empleados pueden trabajar entre 1 a 160 Horas. Y el valor de la hora puede estar
 entre $8,000 y $150,000 pesos la hora."""
 
     id = input("Ingrese el id del empleado: ")
-    nominacme[id]={}
+    nominacme[id] = {}
     print(f"Id empleado: {id}")
 
     nombre = input("Ingrese el nombre de empleado: ")
-    nominacme[id]["nombre"]= nombre
+    nominacme[id]["nombre"] = nombre
     print(f"Nombre empleado: {nombre}")
 
     horas = int(input("Ingrese horas trabajadas: "))
     nominacme[id]["Horas trabajadas"] = horas
     while True:
-            if horas < 1 or horas > 160:
-                print("Ingrese una hora valida")
-                return horas
-            else:
-                break
+        if horas < 1 or horas > 160:
+            print("Ingrese una hora valida")
+            return horas
+        else:
+            break
     print(f"Horas trabajadas: {horas}")
-    
+
     while True:
         valorhora = int(input("Ingrese el valor de la hora trabajada: "))
-        
-        if valorhora < 8000 or valorhora >150000:
+
+        if valorhora < 8000 or valorhora > 150000:
             print("Ingrese un valor de hora adecuado")
-            
+
         else:
             nominacme[id]["Valor hora"] = valorhora
             break
     print(f"Valor horas trabajadas {valorhora}")
     print("LOS VALORES DEL NUEVO EMPLEADO SON: ")
     nominacme.items()
-    print(nominacme)
+    # print(nominacme)
+
+    # Guardar en el disco
+    lstempl = [id, nombre, str(horas), str(valorhora)]
+    strempl = "\n" + ";".join(lstempl)
+    fd = open(ruta, "a+")
+    fd.write(strempl)
+    fd.close()
+
     input("---> Presione ENTER para continuar")
 
-def Modificar_empleado():
+
+def escribirMemDisco(ruta, dicempl):
+    fd = open(ruta, "w")
+    fd.write("ID;NOMBRE;HORASTRAB;VALHORA")
+
+    for id in dicempl.keys():
+        nombre = dicempl[id]["nombre"]
+        horastrab = dicempl[id]["Horas trabajadas"]
+        valhora = dicempl[id]["Valor hora"]
+
+        lstempl = [id, nombre, str(horastrab), str(valhora)]
+        strempl = "\n" + ";".join(lstempl)
+        fd.write(strempl)
+
+    fd.close()
+
+
+def Modificar_empleado(ruta):
     """2. Modificar empleado: Esta opción permite cambiar cualquiera de los datos del empleado, menos el id de empleado."""
     print("Modificar empleado: ")
     print("----Seleccione el numero de lo que quiere modificar---- ")
@@ -139,17 +170,21 @@ def Modificar_empleado():
                 break
             elif modificar == 2:
                 nuevahora = int(input("Ingrese las nuevas horas trabajadas: "))
-                nominacme[buscarid] ["Horas trabajadas"] = nuevahora
+                nominacme[buscarid]["Horas trabajadas"] = nuevahora
                 break
             elif modificar == 3:
                 nuevovalorh = int(input("Ingrese nuevo valor trabajadas: "))
-                nominacme[buscarid] ["Valor hora"] = nuevovalorh
+                nominacme[buscarid]["Valor hora"] = nuevovalorh
                 break
             else:
                 print("Ingrese un numero valido")
         else:
             ("ID NO ENCONTRADO")
+
+    # Modificar el archivo
+    escribirMemDisco(ruta, nominacme)
     input("---> Presione ENTER para continuar")
+
 
 def Buscar_empleado():
     """3. Buscar empleado: Esta opción permite buscar un empleado por su id, si lo encuentra, muestra la información de este y si no, muestra un mensaje de que el empleado no ha sido ingresado"""
@@ -173,7 +208,8 @@ def Buscar_empleado():
             ("Empleado no encontrado")
     input("---> Presione ENTER para continuar")
 
-def Eliminar_empleado():
+
+def Eliminar_empleado(ruta):
     """4. Eliminar empleado: Esta opción permite eliminar a un empleado por su id. Si borra al empleado, muestra
     un mensaje que ha sido eliminado y si no, muestra un mensaje de que no se eliminó el empleado."""
     while True:
@@ -183,7 +219,10 @@ def Eliminar_empleado():
             print(f"ID ELIMINADO,se elimino el id : {buscarid}")
             break
         print("El id ingresado no existe ingrese de nuevo ")
+
+    escribirMemDisco(ruta, nominacme)
     input("---> Presione ENTER para continuar")
+
 def Listar_empleados():
     """5. Listar Empleados: Esta opción permite mostrar los empleados con su información (id, nombre, horas y
 valor de la hora trabajada), debe permitir paginación, esto es, se muestran los primeros 5 empleados,
@@ -223,6 +262,8 @@ Carlos H. Rueda C."""
                 break
         indicador += 1
     input("---> Presione ENTER para continuar")
+
+
 def nómina_empleado():
     """6. Listar la nómina de un empleado: Esta opción permite mostrar la nómina de un empleado buscado por
     su ID. El salario bruto se calcula como el valor de la hora por la cantidad de horas trabajadas. Si gana
@@ -237,7 +278,8 @@ def nómina_empleado():
         else:
             print("ID NO ENCONTRADO")
 
-    sueldobruto = nominacme[buscarid]["Horas trabajadas"]*nominacme[buscarid]["Valor hora"]
+    sueldobruto = nominacme[buscarid]["Horas trabajadas"] * \
+        nominacme[buscarid]["Valor hora"]
     eps = sueldobruto * 0.04
     pension = sueldobruto * 0.04
     descuento = (eps + pension)
@@ -246,7 +288,7 @@ def nómina_empleado():
     if sueldobruto <= 1160000:
         print("Merecedor subsidio de transporte")
         auxilio = 140606
-    sueldoneto = (sueldobruto + auxilio )- descuento
+    sueldoneto = (sueldobruto + auxilio) - descuento
     print(f"La nomina del empleado {nombre}")
     print(f"Sueldo bruto: {sueldobruto}")
     print(f"Valor eps: {eps}")
@@ -254,6 +296,7 @@ def nómina_empleado():
     print(f"Valor auxilio: {auxilio}")
     print(f"Sueldo neto: {sueldoneto}")
     input("---> Presione ENTER para continuar")
+
 
 def nómina_todos():
     contador = 4
@@ -263,7 +306,8 @@ def nómina_todos():
         print("NOMINAS EMPLEADOS ")
         print("#"*40)
 
-        sueldobruto = nominacme[empleado]["Horas trabajadas"]*nominacme[empleado]["Valor hora"]
+        sueldobruto = nominacme[empleado]["Horas trabajadas"] * \
+            nominacme[empleado]["Valor hora"]
         eps = sueldobruto * 0.04
         pension = sueldobruto * 0.04
         descuento = (eps + pension)
@@ -272,7 +316,7 @@ def nómina_todos():
         if sueldobruto <= 1160000:
             print("Merecedor subsidio de transporte")
             auxilio = 140606
-        sueldoneto = (sueldobruto + auxilio )- descuento
+        sueldoneto = (sueldobruto + auxilio) - descuento
         print(f"La nomina del empleado {nombre}")
         print(f"Sueldo bruto: {sueldobruto}")
         print(f"Valor eps: {eps}")
@@ -291,20 +335,47 @@ def nómina_todos():
                 break
         indicador += 1
     input("---> Presione ENTER para continuar")
-    
 
-#Validacion menu:
+
+def cargarArch(ruta):
+    fd = open(ruta, "a+")
+
+    cont = 0
+    dicempl = {}
+    fd.seek(0)
+    for linea in fd:
+        cont += 1
+        if cont > 1:
+            lin = linea.rstrip()
+            lstempl = lin.split(";")
+            dicempl[lstempl[0]] = {}
+            dicempl[lstempl[0]]["nombre"] = lstempl[1]
+            dicempl[lstempl[0]]["Horas trabajadas"] = int(lstempl[2])
+            dicempl[lstempl[0]]["Valor hora"] = int(lstempl[3])
+
+    fd.close()
+
+    if cont < 2:
+        dicempl = {}
+
+    return dicempl
+
+
+# Validacion menu:
+ruta = "Campus Lab/Ciclo 1/Pruebas/codigo/diccionarios/emplacme.dat"
 while True:
+    nominacme = cargarArch(ruta)
+
     elegirop = menu()
 
     if elegirop == 1:
-        Agregar_empleado()
+        Agregar_empleado(ruta)
     elif elegirop == 2:
-        Modificar_empleado()
+        Modificar_empleado(ruta)
     elif elegirop == 3:
         Buscar_empleado()
     elif elegirop == 4:
-        Eliminar_empleado()
+        Eliminar_empleado(ruta)
     elif elegirop == 5:
         Listar_empleados()
     elif elegirop == 6:
@@ -315,4 +386,4 @@ while True:
         print("Se ha cerrado el programa")
         break
 
-print(nominacme)
+# print(nominacme)
