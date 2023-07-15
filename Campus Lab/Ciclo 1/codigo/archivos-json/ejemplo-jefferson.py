@@ -1,17 +1,17 @@
 cole = {
-    "6-1":{
+    "6-1": {
         14: {
-            "nombre":"carlos",
-            "sexo":"m",
-            "nota":None,
-            "prom":0
-            
+            "nombre": "carlos",
+            "sexo": "m",
+            "nota": None,
+            "prom": 0
+
         },
         15: {
-            "nombre":"diana",
-            "sexo":"f",
-            "nota":None,
-            "prom":0
+            "nombre": "diana",
+            "sexo": "f",
+            "nota": None,
+            "prom": 0
         }
     }
 }
