@@ -1,8 +1,8 @@
 def superReducedString(s):
     reduccion = True
-    while reduccion and len(s) > 0:
+    slen= len(s)
+    while reduccion and slen > 0:
         reduccion = False
-        slen= len(s)
         i = 0
         news = ""
         while i < slen:
@@ -15,6 +15,7 @@ def superReducedString(s):
                 news += ""
             i += 1
         s = news
+        slen= len(s)
         
                 
     if len(s) > 0:
