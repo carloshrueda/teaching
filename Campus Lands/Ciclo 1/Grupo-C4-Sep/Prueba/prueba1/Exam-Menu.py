@@ -140,7 +140,8 @@ def ordenamiento_burbuja(lst):
 
 def sortProducts(dicProducts):
     print("\n5. Estrategia de mercados\n")
-    lst = dicProduct.values()
+    # *** codigo original
+    # lst = dicProduct.values()
     # for i in range(len(lst)):
     #     for j in range(i+1):
     #         if lst[i]["price"]>lst[j]["price"]:
@@ -149,8 +150,11 @@ def sortProducts(dicProducts):
     #             lst[j]["price"] = t
     # return list
     
-    # prodOrd = ordenamiento_burbuja(list(dicProduct.items()))
-    prodOrd = sorted(list(dicProduct.items()), key=lambda x : x[1]["price"])
+    # ** Solución con metodo burbuja
+    prodOrd = ordenamiento_burbuja(list(dicProduct.items()))
+    
+    # *** Solución con función sorted
+    # prodOrd = sorted(list(dicProduct.items()), key=lambda x : x[1]["price"])
     
     print("ID\t\tNombre\t\tPrecio\t\tCantidad")
     print("-" * 80)
