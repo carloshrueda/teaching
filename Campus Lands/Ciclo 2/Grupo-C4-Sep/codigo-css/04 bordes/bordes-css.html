@@ -21,7 +21,8 @@
             main {
                 width: 150px;
                 margin: 20px auto;
-                border: 2px outset lightgray
+                border: 2px outset lightgray;
+                
             }
             article {
                 width: 100px;
@@ -32,15 +33,23 @@
                 margin-bottom: 2px;
             }
 
-            section {
-                width: 100px;
-                background: linear-gradient(black, rgba(0, 0, 0, 0.658));
-                
-            }
-
             div {
                 height: 30px;
                 border: 1px solid white;
+            }
+
+            section {
+                width: 100px;
+                background: linear-gradient(black, rgba(0, 0, 0, 0.795));
+                
+            }
+
+            article:nth-child(2) > section {
+                background: linear-gradient(rgba(0, 0, 0, 0.651), rgba(0, 0, 0, 0.322));
+            }
+
+            article:nth-child(3) > section {
+                background: linear-gradient(rgba(243, 172, 172, 0.959), rgba(252, 69, 45, 0.952));
             }
         </style>
     </head>
@@ -48,6 +57,26 @@
         <main>
             <article>
                 <h3>Color negro</h3>
+                <section>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </section>
+            </article>
+
+            <article>
+                <h3>Color gris</h3>
+                <section>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </section>
+            </article>
+
+            <article>
+                <h3>Color rosa</h3>
                 <section>
                     <div></div>
                     <div></div>
