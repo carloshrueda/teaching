@@ -50,10 +50,21 @@
                 padding: 5px;
             }
 
+            .link-campus:link {
+                color:brown;
+                border: 4px solid green;
+            }
+
+            .link-campus:visited {
+                border: 4px solid red;
+            }
+            
+            
+
             [lang|="es"]:hover {
                 background-color: blueviolet;
             }
-
+/*
             a[href]::after {
                 content: " URL: [" attr(href) "]";
                 display: inline-block;
@@ -63,17 +74,7 @@
                 content: " (Página insegura): " attr(href);
                 color: red;
             }
-
-            a[href^="https:"]:link {
-                color:brown;
-                border: 4px solid green
-            }
-            
-            a[href^="https:"]:visited {
-                color:blue;
-                background-color: aqua;
-                border: whiteN;
-            }
+            */
 
             a[href$=".pdf"]::before {
                 content: url(icons8-download-50.png);
@@ -113,7 +114,7 @@
         <div lang="es-MX en-EN">English</div>
 
         <br /><br />
-        <a href="https://campuslands.com">Campus Lands </a><br />
+        <a href="https://campuslands.com" target="_blank">Campus Lands </a><br />
         <a href="http://campuslands.com">Campus Lands </a>
         <br /><br />
 
@@ -127,7 +128,8 @@
             <label for="lastname">Apellido: </label>
             <input type="text" name="lastname" id="lastname" />
         </form>
-
         <br /><br />
+
+        <a href="http://vanguardia.com" target="_blank" class="link-campus">Vanguardia</a>
     </body>
 </html>
