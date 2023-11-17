@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navidad Responsive</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+        body {
+            height: 90vh;
+        }
+
+        .contenedor {
+            background-color: antiquewhite;
+            height: 90vh;
+            margin: 0px auto;
+            text-align: center;
+            display: grid;
+            grid-template-areas:    "titulo" 
+                                    "fn1"
+                                    "fn3" 
+                                    "fn4" 
+                                    "fn2";
+            justify-content: center;
+            align-items: center;
+            gap: 5px
+        }
+
+        h1 {
+            grid-area: titulo;
+        }
+
+        img {
+            border: 1px solid  gray;
+        }
+
+        #fn1 {
+            grid-area: fn1;
+        }
+
+        #fn2 {
+            grid-area: fn2;
+        }
+
+        #fn3 {
+            grid-area: fn3;
+        }
+
+        #fn4 {
+            grid-area: fn4;
+        }
+
+        /* 0 - 480 
+        @media (max-width:480px) {
+            img {
+                width: 50%;
+            }
+        }
+        */
+
+        /* 480 - 768 */
+        @media (min-width:480px) and (max-width:768px) {
+            img {
+                }
+            body {
+                display: grid;
+                grid-template-areas: "titulo"
+                                        "fn1 fn2" 
+                                        "fn3 fn4" 
+            }
+        }
+
+        /* 768 */
+        @media (min-width:768px) and (max-width:768px) {
+            img {
+            }
+            body {
+                display: grid;
+                grid-template-areas: "titulo fn1 fn2 fn3 fn4";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Feliz Navidad</h1>
+        <br>
+        <br>
+        <img src="https://cdn-icons-png.flaticon.com/256/4193/4193253.png" alt="Feliz navidad 1" id="fn1">
+        <img src="https://cdn-icons-png.flaticon.com/256/4193/4193299.png" alt="Feliz navidad 2" id="fn2">
+        <img src="https://cdn-icons-png.flaticon.com/256/4193/4193257.png" alt="Feliz navidad 3" id="fn3">
+        <img src="https://cdn-icons-png.flaticon.com/256/4193/4193265.png" alt="Feliz navidad 4" id="fn4">
+    </div>
+    
+</body>
+</html>
