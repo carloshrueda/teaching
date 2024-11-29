@@ -1,7 +1,5 @@
 package arrays_04;
 
-import java.util.Arrays;
-
 public class SweetCO {
     public static void main(String[] args) {
         int[][] ventas = {
