@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asincronía con promesas</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Open sans", Verdana, Geneva, Tahoma, sans-serif;
+      }
+      #asincronia {
+        width: 80vw;
+        margin: 0px auto;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+
+      p {
+        border: 1px solid black;
+        text-align: center;
+        padding: 25px;
+        font-family: "Lucida Console", "Consolas", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Solucion Ejercicio de Asincronía con Promesas</h1>
+    </header>
+    <main>
+      <section>
+        <ul>
+          <li>
+            <strong>A</strong> debería aparecer de una cuando se carga la
+            ventana.
+          </li>
+
+          <li>
+            <strong>B</strong> debería aparecer inmediatamente después de A.
+          </li>
+
+          <li><strong>C</strong> debería aparecer 6 segundos después de A.</li>
+
+          <li>
+            <strong>D</strong> debería aparecer aleatoriamente entre 2 y 5
+            segundos random después de cargar la ventana.
+          </li>
+
+          <li><strong>E</strong> debería aparecer 2 segundos después de D.</li>
+
+          <li><strong>F</strong> debería aparecer 7 segundos después de B.</li>
+
+          <li><strong>G</strong> debería aparecer 2 segundos después de E.</li>
+
+          <li><strong>H</strong> debería aparecer 3 segundos después de G.</li>
+        </ul>
+      </section>
+
+      <section id="asincronia">
+        <!-- <p><b>A</b>[Enviado de: 1] aparecio en</p>
+            <p><b>B</b>[Enviado de: 1] aparecio en</p> -->
+      </section>
+    </main>
+  </body>
+  <script>
+    const elemAsincronia = document.getElementById("asincronia");
+    const elementos = {
+      A: { letra: "A", tiempo: 0 },
+      B: { letra: "B", tiempo: 0 },
+      C: { letra: "C", tiempo: 6000, pre: "A" },
+      D: { letra: "D", tiempo: Math.ceil(Math.random() * 3000 + 2000) },
+      E: { letra: "E", tiempo: 2000, pre: "D" },
+      F: { letra: "F", tiempo: 7000, pre: "B" },
+      G: { letra: "G", tiempo: 2000, pre: "E" },
+      H: { letra: "H", tiempo: 3000, pre: "G" },
+    };
+
+    let enviado = 0;
+
+    function getFecha() {
+      let fecha = new Date();
+
+      return [fecha.getHours(), fecha.getMinutes(), fecha.getSeconds()].join(
+        ":"
+      );
+    }
+
+    function dibujarCuadro(letra) {
+      return `<p><b>${letra}</b>[Enviado de: ${++enviado}] aparecio en ${getFecha()}</p>`;
+    }
+
+    function errorPromesa(letra) {
+      return `<p style="color: red"><b>Promesa ${letra}</b> Rechazada</p>`;
+    }
+
+    const promesa = (letra, tiempo) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          letra !== "C" && letra !== "F"
+            ? resolve(dibujarCuadro(letra))
+            : reject(new Error(errorPromesa(letra)));
+        }, tiempo);
+      });
+    };
+
+    for (let elem in elementos) {
+      let tiempo = elementos[elem].tiempo;
+      let pre = elementos[elem].pre;
+      let letra = elementos[elem].letra;
+
+      if (pre) {
+        tiempo += elementos[pre].tiempo;
+        elementos[elem].tiempo = tiempo;
+      }
+
+      promesa(letra, tiempo)
+        .then((cadena) => {
+          console.log(`Promesa ${letra} Aceptada`);
+          elemAsincronia.innerHTML += cadena;
+        })
+        .catch((error) => {
+          elemAsincronia.innerHTML += error.message;
+          console.error(error.message);
+        });
+    }
+    console.table(elementos);
+  </script>
+</html>
