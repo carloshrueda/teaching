@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Divisas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-blue-50 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold text-center text-blue-600 mb-8">Convertidor de Divisas</h1>
+        <div class="bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="col-span-2 flex justify-between mb-4">
+                    <span class="font-semibold text-gray-700">Cantidad</span>
+                    <span class="font-semibold text-gray-700">Moneda</span>
+                </div>
+                
+                <div class="flex items-center">
+                    <span class="text-gray-600 mr-2">Origen:</span>
+                    <input type="number" id="cant-orig" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300">
+                </div>
+                <select id="div-orig" class="p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    <option value="none">Seleccione una moneda</option>
+                </select>
+
+                <div class="flex items-center">
+                    <span class="text-gray-600 mr-2">Destino:</span>
+                    <input type="number" id="cant-dest" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300">
+                </div>
+                <select id="div-dest" class="p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    <option value="none">Seleccione una moneda</option>
+                </select>
+
+                <button id="convertir" class="col-span-2 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200 mt-4">
+                    Convertir
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="js/conv-divisas.js"></script>
+</body>
+
+</html>

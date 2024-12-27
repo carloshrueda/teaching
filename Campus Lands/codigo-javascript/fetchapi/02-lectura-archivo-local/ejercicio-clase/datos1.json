@@ -1,0 +1,14 @@
+[
+	{
+		"NOMBRE;EQUIPO;EDAD;SEXO": "Carlos;Apolo;22;M"
+	},
+	{
+		"NOMBRE;EQUIPO;EDAD;SEXO": "Diana;Artemis;18;F"
+	},
+	{
+		"NOMBRE;EQUIPO;EDAD;SEXO": "Teofilo;Sputnik;21;M"
+	},
+	{
+		"NOMBRE;EQUIPO;EDAD;SEXO": "Oscar;Apolo;18;M"
+	}
+]

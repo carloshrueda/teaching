@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CRUD RECLUTAS</title>
+    </head>
+    <body>
+        <h1>Crud Reclutas</h1>
+        <br /><br />
+        <form action="">
+            <label for="id">Id Recluta:</label>
+            <br />
+            <input type="number" name="id" id="id" />
+            <br /><br />
+
+            <label for="numeroid">Numero Identificación Recluta:</label>
+            <br />
+            <input type="number" name="numeroid" id="numeroid" />
+            <br /><br />
+
+            <label for="nombre">Nombre Recluta:</label>
+            <br />
+            <input type="text" name="nombre" id="nombre" />
+            <br /><br />
+
+            <label for="fechanacimiento">Fecha de Nacimiento Recluta:</label>
+            <br />
+            <input type="date" name="fechanacimiento" id="fechanacimiento" />
+            <br /><br />
+
+            <label for="telefono">Teléfono Recluta:</label>
+            <br />
+            <input type="number" name="telefono" id="telefono" />
+            <br /><br />
+
+            <label for="direccion">Direccion Recluta:</label>
+            <br />
+            <input type="text" name="direccion" id="direccion" />
+            <br /><br />
+
+            <label for="email">Email Recluta:</label>
+            <br />
+            <input type="text" name="email" id="email" />
+            <br /><br />
+
+            <label for="fechaingreso">Fecha de Ingreso del Recluta al Programa:</label>
+            <br />
+            <input type="date" name="fechaingreso" id="fechaingreso" />
+            <br /><br />
+
+            <label for="teamId">Team del Recluta:</label>
+            <br />
+            <select name="teamId" id="teamId"></select>
+            <br /><br />
+
+            <div class="botonera">
+                <input type="button" value="Agregar" id="agregar" name="agregar" />
+                <input type="button" value="Buscar" id="buscar" name="buscar" />
+                <input type="button" value="Modificar" id="modificar" name="modificar" />
+                <input type="button" value="Borrar" id="borrar" name="borrar" />
+            </div>
+        </form>
+
+        <hr />
+        <br /><br />
+        <a href="../index.html">Volver al menu...</a>
+
+        <script src="../views/reclutas.js" type="module"></script>
+    </body>
+</html>

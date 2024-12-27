@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="01-sesionstorage-ejemplo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Inicio de Sesión</h1>
+      <form id="formularioLogin" class="formulario">
+        <label for="nombreUsuario">Nombre de Usuario:</label>
+        <input
+          type="text"
+          id="nombreUsuario"
+          placeholder="Ingresa tu nombre"
+          required
+        />
+        <button type="submit" class="boton">Ingresar</button>
+      </form>
+    </div>
+    <script>
+      document
+        .getElementById("formularioLogin")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const nombreUsuario = document.getElementById("nombreUsuario").value.trim();
+          if (nombreUsuario) {
+            sessionStorage.setItem("usuarioActual", nombreUsuario);
+            sessionStorage.setItem("paginaAnterior", window.location.href);
+            window.location.href = "dashboard.html";
+          } else {
+            alert("Por favor, ingresa un nombre de usuario.");
+          }
+        });
+    </script>
+  </body>
+</html>

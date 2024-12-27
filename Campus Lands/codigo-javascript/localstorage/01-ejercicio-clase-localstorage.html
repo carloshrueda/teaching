@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo LocalStorage</title>
+  </head>
+  <body>
+    <h1 id="h1">Ejemplo localStorage</h1>
+
+    <div id="div1">
+      <p class="c4">Traingan audifonos mañana</p>
+      <p class="c4">Anderson por favor comprelos nad de pedirlo prestados</p>
+    </div>
+
+    <ol>
+      <li>Marlon</li>
+      <li>Laia</li>
+    </ol>
+
+    <main>
+      <div>
+        <section>
+          <aside>
+            <ul>
+              <li>Maria Camila</li>
+              <li>Nicolas</li>
+            </ul>
+          </aside>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      //localStorage.setItem("Nombre", "Santiago");
+      //localStorage.Apellido = "Hernandez";
+
+      //let nombre = localStorage.Nombre;
+      //let apellido = localStorage.getItem("Apellido");
+
+      //alert(nombre + " " + apellido);
+
+      /*for(let i=0; i<localStorage.length; i++) {
+                    let k = localStorage.key(i);
+                    console.log(`Llave: ${k} => Valor: ${localStorage.getItem(k)}`);
+                }*/
+
+      /*for(let k in localStorage) {
+                    if (!localStorage.hasOwnProperty(k))
+                        continue
+                    console.log(`Llave: ${k} => Valor: ${localStorage.getItem(k)}`);
+                }*/
+
+      const Person = {
+        name: "john doe",
+        age: 32,
+        gender: "male",
+        profession: "optician",
+        datos: [],
+      };
+      Person.datos.push({
+        imagen: "url1",
+        titulo: "titulo1",
+      });
+      Person.datos.push({
+        imagen: "url2",
+        titulo: "titulo2",
+      });
+      let vPerson = [Person, Person, Person];
+      //localStorage.setItem("myObject", JSON.stringify(vPerson));
+      //alert(localStorage.getItem("myObject"));
+
+      let newObject = localStorage.getItem("myObject");
+      let vPerson2 = JSON.parse(newObject);
+      console.table(vPerson2);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+}
+
+.box {
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3px;
+    padding: 5px;
+}

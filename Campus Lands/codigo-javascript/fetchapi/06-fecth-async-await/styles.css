@@ -1,0 +1,17 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.contenedor-pokemon {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contenedor-pokemon img {
+  max-width: 200px;
+}

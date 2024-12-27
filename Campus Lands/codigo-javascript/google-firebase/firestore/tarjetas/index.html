@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Ejercicio tomado de:
+    https://youtu.be/ey4k6mW9ds4?si=vEm2F-L_QYpuntRe
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Google - Firebase | Firestore</title>
+</head>
+
+<body>
+    <h1>Ejemplo Google - Firebase | Firestore</h1>
+    <hr>
+
+    <!-- Formulario con la captura de las tareas -->
+    <form action="" id="task-form">
+        <label for="task-title">Title: </label>
+        <input type="text" placeholder="Task Title" id="task-title">
+
+        <label for="task-description">Descripción: </label>
+        <textarea id="task-description" rows="3" placeholder="Task Description"></textarea>
+
+        <input type="submit" value="Save" id="btn-task-save">
+
+        <!-- listar las tareas -->
+        <div id="task-list">
+
+        </div>
+    </form>
+
+    <script type="module" src="index.js"></script>
+
+
+</body>
+
+</html>

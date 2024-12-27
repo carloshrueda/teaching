@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopPropagation</title>
+    <style>
+        div {
+            padding: 50px;
+            background-color: rgba(255, 0, 0, 0.2);
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>stopPropagation() Event Method</h1>
+    <hr>
+    <p>
+        El método <b>stopPropagation()</b> evita que se llame a la propagación del mismo evento.
+        <br><br>
+        La propagación significa difundir hasta elementos principales o capturar elementos secundarios.
+    </p>
+    <hr>
+    <h2>Ejemplo</h2>
+    <p>Click DIV 1:</p>
+    <div onclick="func2()">DIV 2
+        <div onclick="func1(event)">DIV 1</div>
+    </div>
+
+    Stop propagation:
+    <input type="checkbox" id="check">
+
+    <p></p>
+
+    <p>Debido a que DIV 1 está dentro de Div 2, se hace clic en ambos DIV cuando hace clic en DIV 1.</p>
+    <p>Marque la casilla de verificación detener la propagación e inténtelo de nuevo.</p>
+    <p>El método stopPropagation() le permite evitar la propagación del evento actual.</p>
+
+    <script>
+        function func1(event) {
+            alert("DIV 1");
+            if (document.getElementById("check").checked) {
+                event.stopPropagation();
+            }
+        }
+
+        function func2() {
+            alert("DIV 2");
+        }
+    </script>
+</body>
+
+</html>

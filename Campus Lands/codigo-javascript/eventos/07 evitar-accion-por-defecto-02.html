@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evitar acciones por defecto</title>
+</head>
+
+<body>
+    <h1>Evitar acciones por defecto - ejemplo 2</h1>
+    <hr>
+    <p>Haz clic derecho aquí para el menú contextual del documento</p>
+    <button id="elem">Haz clic derecho aquí para el menú contextual del botón</button>
+
+    <script>
+        elem.oncontextmenu = function (event) {
+            event.preventDefault();
+            alert("Menú contextual del botón");
+            event.stopPropagation();
+        };
+
+        document.oncontextmenu = function (event) {
+            event.preventDefault();
+            alert("Menú contextual del documento");
+        };
+    </script>
+
+</body>
+
+</html>

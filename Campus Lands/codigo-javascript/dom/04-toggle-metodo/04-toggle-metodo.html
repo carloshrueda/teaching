@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>toggleAttribute Example</title>
+</head>
+<body>
+  <h1 id="titulo">Este es un título</h1>
+  <button id="btnToggleHidden">Ocultar</button>
+
+  <script>
+    const titulo = document.getElementById("titulo");
+    const btnToggleHidden = document.getElementById("btnToggleHidden");
+
+    // Alternar el atributo "hidden"
+    btnToggleHidden.addEventListener("click", () => {
+      titulo.toggleAttribute("hidden");
+      btnToggleHidden.innerText = "Mostrar";
+    });
+
+
+  </script>
+</body>
+</html>

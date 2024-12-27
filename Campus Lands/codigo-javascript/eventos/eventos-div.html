@@ -1,0 +1,46 @@
+<head>
+    <style>
+        .oculto {
+            display: none
+        }
+
+        .visible {
+            display: block
+        }
+    </style>
+</head>
+
+<body>
+    <div class="oculto" id="ficha1">
+        Hola, soy el bloque 1</div>
+    <div class="oculto" id="ficha2">
+        Hola, soy el bloque 2</div>
+    <div class="oculto" id="ficha3">
+        Hola, soy el bloque 3</div>
+
+    <script>
+        document.addEventListener('keypress', alternar);
+        function alternar(e) {
+            let id = '';
+            switch (e.key) {
+                case '1':
+                    id = "ficha1";
+                    break;
+                case '2':
+                    id = "ficha2";
+                    break;
+                case '3':
+                    id = "ficha3";
+                    break;
+            }
+            if (id != '') {
+                let o = document.querySelector('.visible')
+                if (o) {
+                    o.classList.replace('visible', 'oculto')
+                }
+                o = document.getElementById(id)
+                o.classList.replace('oculto', 'visible');
+            }
+        }
+    </script>
+</body>

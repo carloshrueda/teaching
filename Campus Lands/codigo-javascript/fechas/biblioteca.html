@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let fecPactada;
+        let datePactada;
+        let fecDevolucion;
+        let dateDevolucion;
+
+        //get fecha pactada
+        do {
+            fecPactada = prompt("Fecha Entrega pactada [mm/dd/yyyy]");
+            datePactada = new Date(fecPactada);
+        } while (datePactada.toDateString() === "Invalid Date");
+
+        do {
+            fecDevolucion = prompt("Fecha Entrega Real [mm/dd/yyyy]");
+            dateDevolucion = new Date(fecDevolucion);
+        } while (dateDevolucion.toDateString() === "Invalid Date");
+
+        let diff = dateDevolucion.getTime() - datePactada.getTime();
+        let dias = (diff > 0) ? Math.round(diff / 1000 / 60 / 60 / 24) : 0;
+
+        let msg = "";
+
+        if (dias > 0) {
+            let multa = 0;
+            let sancion = false;
+            if (dias <= 3) {
+                multa += dias * 7000;
+            } else  {
+                multa += 10000;
+                sancion = true;
+            }
+
+            msg = `La multa es de $${multa}` + ((sancion) ? ` y una sanción de 6 meses de no préstamo.` : '');
+        } else {
+            msg = "gracias por entregar el libro a tiempo.";
+        }
+
+        alert(msg);
+    </script>
+</body>
+
+</html>

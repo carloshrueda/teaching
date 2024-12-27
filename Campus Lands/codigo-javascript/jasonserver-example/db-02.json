@@ -1,0 +1,61 @@
+{
+  "facturas": [
+    {
+      "id": 1,
+      "fecha": "01/01/2023",
+      "valor": 25000,
+      "personaId": "101"
+    },
+    {
+      "id": 2,
+      "fecha": "02/01/2023",
+      "valor": 35000,
+      "personaId": 103
+    },
+    {
+      "id": 3,
+      "fecha": "03/05/2023",
+      "valor": 220000,
+      "personaId": 102
+    },
+    {
+      "id": 4,
+      "fecha": "03/01/2023",
+      "valor": 225000,
+      "personaId": 101
+    },
+    {
+      "id": 5,
+      "fecha": "04/02/2023",
+      "valor": 15000,
+      "personaId": 105
+    }
+  ],
+  "personas": [
+    {
+      "id": "101",
+      "nombre": "Maria",
+      "apellido": "Quintanilla"
+    },
+    {
+      "id": 102,
+      "nombre": "Daniel",
+      "apellido": "Castro"
+    },
+    {
+      "id": 103,
+      "nombre": "Javier",
+      "apellido": "Carrascal"
+    },
+    {
+      "id": 104,
+      "nombre": "Isabella",
+      "apellido": "Santo Domingo"
+    },
+    {
+      "id": 105,
+      "nombre": "Maria",
+      "apellido": "Salazar"
+    }
+  ]
+}

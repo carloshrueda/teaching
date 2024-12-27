@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04 Buscar Elementos HTML</title>
+  </head>
+  <body>
+    <p class="parrafo" id="mi-id">Hola este es mi párrafo</p>
+    <p class="parrafo" id="mi-id-dos">Hola este es mi párrafo</p>
+
+    <ul id="lista-dinamica"></ul>
+
+    <script>
+      /*
+      console.log(document.head);
+      console.log(document.body);
+      console.log(document.getElementById("mi-id"));
+      console.log(document.querySelector("#mi-id"));
+      console.log(document.querySelector(".mi-id"));
+      console.log(document.querySelector("p"));
+      console.log(document.querySelectorAll("p"));
+      */
+
+      const lista = document.getElementById("lista-dinamica");
+      const arrayItem = ["item 1", "item 2", "item 3"];
+      const fragment = document.createDocumentFragment();
+
+      arrayItem.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+    
+        const referenceNode = fragment.firstChild;
+        //console.log("primer li", referenceNode);
+
+        
+        fragment.insertBefore(li, referenceNode);
+      });
+    
+      lista.appendChild(fragment)
+    </script>
+  </body>
+</html>

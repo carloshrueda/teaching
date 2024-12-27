@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>Manejar CORS en JavaScript</title>
+</head>
+
+<body>
+    <h1>Datos del Servidor</h1>
+    <div id="data"></div>
+
+    <script>
+        document
+            .addEventListener('DOMContentLoaded', () => {
+                const dataContainer = document
+                    .getElementById('data');
+
+                fetch('http://localhost:3000/data')
+                    .then(response => response.json())
+                    .then(data => {
+                        const { name, currency } = data;
+                        dataContainer
+                            .innerHTML = `
+            <p>Nombre: ${name}</p>
+            <p>Moneda: ${currency}</p>
+          `;
+             })
+             .catch(error => {
+              console
+              .error('Error al obtener los datos:', error);
+               dataContainer
+              .innerHTML = '<p>Error al obtener los datos. Por favor, inténtelo de nuevo más tarde.</p>';
+                    });
+            });
+    </script>
+</body>
+
+</html>

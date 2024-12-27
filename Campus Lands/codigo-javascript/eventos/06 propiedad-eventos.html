@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades del evento</title>
+</head>
+
+<body>
+    <h1>Propiedades del evento</h1>
+    <hr>
+    <p>El objeto event proporciona diversas propiedades que contienen información sobre el evento ocurrido. Algunas de
+        las propiedades más comunes incluyen:</p>
+
+    <h2>type</h2>
+    <p>La propiedad type en un objeto de evento indica el tipo de evento que ha ocurrido. Es una cadena de texto que
+        identifica la naturaleza del evento. Por ejemplo, si estamos escuchando un clic del ratón, la propiedad type
+        contendrá la cadena "click". De manera similar, eventos como "keydown" representarán pulsaciones de teclas,
+        mientras que "mouseover" indicará que el ratón se ha movido sobre un elemento. En resumen, la propiedad type
+        proporciona información sobre la categoría específica de evento que ha sido desencadenado.</p>
+
+    <h2>timeStamp</h2>
+    <p>La propiedad `timeStamp` en un objeto de evento representa la marca de tiempo del momento en que ocurrió el
+        evento. Esta marca de tiempo se mide en milisegundos desde el inicio del tiempo Unix (1 de enero de 1970,
+        00:00:00 UTC). La propiedad `timeStamp` es útil para determinar la secuencia temporal de eventos y puede ser
+        utilizada para calcular la duración entre eventos o para sincronizar acciones basadas en el tiempo en una
+        aplicación.</p>
+
+    <h2>isTruted</h2>
+
+    <p>La propiedad `.isTrusted` en un objeto de evento de JavaScript indica si el evento fue generado por una acción
+        del usuario real (considerado confiable) o si fue creado mediante scripting o automatización (considerado no
+        confiable).
+        <br><br>
+        Cuando `isTrusted` es `true`, significa que el evento fue generado por una acción del usuario, como hacer clic
+        con el ratón o pulsar una tecla. Por otro lado, cuando es `false`, indica que el evento fue creado mediante
+        código y no fue desencadenado directamente por una interacción del usuario.
+        <br><br>
+        Esta propiedad es útil para verificar la autenticidad de un evento y determinar si proviene de una fuente
+        confiable, lo que puede ser relevante en situaciones de seguridad.
+    </p>
+    <hr>
+    <h2>Ejemplo</h2> 
+    <p>Haz clic en el botón y mira la consola las propiedades del evento</p>
+    <br>  
+    <button>Haz clic aquí</button>
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <script>
+        const button = document.querySelector("button");
+        button.addEventListener("click", (event) => {
+            const { type, timeStamp, isTrusted } = event;
+            console.log({ type, timeStamp, isTrusted });
+        });
+    </script>
+
+
+
+</body>
+
+</html>

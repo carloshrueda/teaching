@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Usuario</title>
+    <link rel="stylesheet" href="01-sesionstorage-ejemplo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Panel de Usuario</h1>
+      <p id="mensajeBienvenida"></p>
+      <p id="mensajeAlerta"></p>
+      <button id="cerrarSesion" class="boton">Cerrar Sesión</button>
+    </div>
+    <script>
+      const mensajeAlerta = document.getElementById("mensajeAlerta");
+      console.log(
+        "HAY SESION: " + sessionStorage.hasOwnProperty("usuarioActual")
+      );
+
+      const nombreUsuario = sessionStorage.getItem("usuarioActual");
+      console.log(
+        "getItem('usuarioActual'): " +
+          sessionStorage.hasOwnProperty("usuarioActual")
+      );
+
+      let paginaAnterior = sessionStorage.getItem("paginaAnterior");
+      if (paginaAnterior === null) {
+        paginaAnterior = "01-sesionstorage-ejemplo.html";
+      }
+
+      if (nombreUsuario) {
+        document.getElementById(
+          "mensajeBienvenida"
+        ).textContent = `¡Hola, ${nombreUsuario}! Bienvenido a tu panel.`;
+      } else {
+        mensajeAlerta.textContent =
+          "No hay una sesión activa. Serás redirigido al inicio en 5 segundos.";
+        sleep(5000).then(() => (window.location.href = paginaAnterior));
+      }
+
+      document.getElementById("cerrarSesion").addEventListener("click", () => {
+        mensajeAlerta.textContent =
+          "Cerrando sesión. Serás redirigido al inicio en 5 segundos.";
+        sessionStorage.removeItem("usuarioActual");
+        sleep(5000).then(() => (window.location.href = paginaAnterior));
+      });
+
+      function sleep(ms) {
+        return new Promise(async (resolve) => {
+          await setTimeout(resolve, ms);
+        });
+      }
+    </script>
+  </body>
+</html>

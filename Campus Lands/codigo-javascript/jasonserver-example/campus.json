@@ -1,0 +1,49 @@
+{
+  "trainers": [
+    {
+      "id": "1",
+      "nombres": "carlos",
+      "apellidos": "rueda",
+      "especialidad": "backend java"
+    },
+    {
+      "id": "2",
+      "nombres": "miguel",
+      "apellidos": "ruiz",
+      "especialidad": "backend javascript",
+      "sexo": "m",
+      "edad": "25"
+    } 
+  ],
+  "campers": [
+    {
+      "trainerId": "1",
+      "saloneId": "2",
+      "id": "1",
+      "nombres": "luis",
+      "apellidos": "ariza"
+    },
+    {
+      "trainerId": "1",
+      "saloneId": "1",
+      "id": "2",
+      "nombres": "Hader", 
+      "apellidos": "Cabrera"
+    }
+  ],
+  "salones": [
+    {
+      "id": "1",
+      "nombres": "Apolo"
+        
+    },
+    {
+      "id": "2",
+      "nombres": "Sputnik"
+    },
+    {
+      "id": "3",
+      "nombres": "Artemis"
+    }
+  ]
+}

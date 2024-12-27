@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiples Listener</title>
+    <style>
+        .red {
+            background: red
+        }
+    </style>
+</head>
+
+<body>
+    <button>Saludar</button>
+    <script>
+        // un solo listener para el boton
+        const button = document.querySelector("button");
+        button.addEventListener("click", function () {
+            alert("¡Botón clickeado!");
+        });
+    </script>
+</body>
+
+</html>
