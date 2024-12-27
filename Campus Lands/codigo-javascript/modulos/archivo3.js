@@ -1,8 +1,4 @@
-export const PI = 3.1415926;
+import * as arch from './archivo1.js';
 
-export function factorial (n) {
-    let f=1;
-    for(let i=1; i<=n; ++i)
-        f *= i;
-    return f;
-}
+console.log(arch.suma(4,5));
+console.log(arch.PI);

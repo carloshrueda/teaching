@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Tablas en HTML</h1>
+    <hr />
+
+    <table
+      border="1"
+      width="50%"
+      cellspacing="10"
+      cellpadding="10"
+      bgcolor="#f9e79f"
+      bordercolor="#ff5733"
+      align="center"
+    >
+      <tr bgcolor="#FFC300">
+        <th colspan="2">Celda 1</th>
+        <!-- <th>Celda 2</th> -->
+        <th>Celda 3</th>
+      </tr>
+      <tr align="right" bgcolor="#ff5733">
+        <th>Celda 4</th>
+        <td rowspan="2">Celda 5</td>
+        <td>Celda 6</td>
+      </tr>
+      <tr align="left">
+        <th>Celda 7</th>
+        <!-- <td align="center">Celda 8</td> -->
+        <td align="right">Celda 9</td>
+      </tr>
+    </table>
+
+    <hr />
+    <table border="1" width="50%" cellpadding="20">
+      <thead>
+        <tr>
+          <th>Tipo Dato A</th>
+          <th>Tipo Dato B</th>
+          <th>Tipo Dato C</th>
+        </tr>
+      </thead>
+      <tbody align="center">
+        <tr>
+          <td>A</td>
+          <td>B</td>
+          <td>C</td>
+        </tr>
+        <tr>
+          <td>D</td>
+          <td>E</td>
+          <td>F</td>
+        </tr>
+      </tbody>
+      <tfoot align="center">
+        <tr>
+          <td>G</td>
+          <td>H</td>
+          <td>I</td>
+        </tr>
+      </tfoot>
+      <caption>
+        <i><strong>Tipo de datos</strong></i>
+      </caption>
+    </table>
+  </body>
+</html>

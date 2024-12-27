@@ -1,4 +1,9 @@
-fd = open("codigo/archivos/prueba.txt", "w")
-fd.write("Primera linea\n")
-fd.write("Segunda linea\n")
+
+fd = open("Python/archivos/data2.txt", "w")
+
+fd.write("Python es divertido....\n")
+
+fd.write("Listo para el proyecto  :P")
+
+
 fd.close()

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario HTML|</title>
+  </head>
+  <body>
+    <h1>FORMULARIOS EN HTML</h1>
+    <hr />
+
+    <form action="" method="GET">
+      <fieldset>
+        <legend>Datos personales</legend>
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          name="nombre"
+          id="nombre"
+          placeholder="Ingrese su nombre"
+          value="demo"
+          minlength="3"
+          maxlength="10"
+          size="10"
+          readonly
+        />
+        <br /><br />
+        <label for="usuario">Usuario:</label>
+        <input
+          type="text"
+          name="usu"
+          id="usuario"
+          autofocus
+          pattern="[A-Za-z]{3,10}"
+          title="Debe contener de 3 a 10 letras."
+        />
+        <br /><br />
+        <label for="pass">Constraseña:</label>
+        <input type="password" name="pass" id="pass" />
+        <br /><br />
+        <label for="email">Correo electrónico:</label>
+        <input type="email" name="email" id="email" />
+        <br /><br />
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad" min="18" max="50" />
+      </fieldset>
+
+      <br /><br />
+      <label for="tel">Telefono</label>
+      <input type="tel" name="tel" id="tel" />
+      <br /><br />
+      <label for="url">URL:</label>
+      <input type="url" name="url" id="url" placeholder="Dirección web" />
+      <br /><br />
+      <label for="fecha">Fecha:</label>
+      <input type="date" name="fecha" id="fecha" value="2006-10-04" />
+      <label for="hora">Hora:</label>
+      <input type="time" name="hora" id="hora" value="20:30:00" />
+      <br /><br />
+      <label for="sexo">Sexo</label>
+      <input type="radio" name="sexo" id="sexo" value="mujer" checked /> Mujer
+      <input type="radio" name="sexo" id="sexo" value="hombre" /> Hombre
+      <input type="radio" name="sexo" id="sexo" value="otro" /> Otro
+      <br /><br />
+      <label for="hobbies">Pasatiempos</label>
+      <br />
+      <input type="checkbox" name="hobbies" id="hobbies" value="programar" />
+      Programar
+      <input type="checkbox" name="hobbies" id="hobbies" value="Leer" /> Leer
+      <input type="checkbox" name="hobbies" id="hobbies" value="Deportes" />
+      Deportes
+      <input type="checkbox" name="hobbies" id="hobbies" value="Pingpong" />
+      Ping Pong <br /><br />
+      <label for="color">Color</label>
+      <input type="color" name="color" id="color" />
+      <br /><br />
+      <label for="file">Subir archivo:</label>
+      <input type="file" name="file" id="file" style=""/>
+      <br /><br />
+      <input
+        type="button"
+        value="Clicqueame"
+        onclick="alert('Feliz cumpleaños')"
+      />
+      <br /><br />
+      <input
+        type="image"
+        src="img/sitio-web.png"
+        alt="Enviar"
+        width="50px"
+        onclick="alert('Mundo Web')"
+      />
+
+      <br /><br />
+      <label for="browser">Navegador de preferencia:</label>
+      <input type="text" name="browser" id="browser" list="browsers" />
+      <datalist id="browsers">
+        <option value="Chrome"></option>
+        <option value="Firefox"></option>
+        <option value="Safari"></option>
+        <option value="Edge"></option>
+        <option value="Opera"></option>
+      </datalist>
+
+      <br /><br />
+      <label for="mes">Mes de ingreso:</label>
+      <input type="month" name="mes" id="mes" />
+
+      <br /><br />
+      <label for="inten">Intensidad (entre 0 y 50): </label>
+      <input type="range" name="inten" id="inten" min="0" max="50" step="2" />
+
+      <br /><br />
+      <input type="submit" value="Enviar" />
+      <input type="reset" value="Limpiar todo" />
+
+      <br /><br />
+      <label for="comentarios">comentarios</label>
+      <br />
+      <textarea
+        name="comentarios"
+        id="comentarios"
+        rows="10"
+        cols="40"
+        placeholder="Hazme saber tus comentarios"
+      ></textarea>
+
+      <br /><br />
+      <label for="ciudadnac">Ciudad de nacimiento:</label>
+      <select name="ciudadnac" id="ciudadnac" multiple>
+        <option value="Bucaramanga">Bucaramanga</option>
+        <option value="Bogota" selected>Bogota</option>
+        <option value="Medellin">Medellin</option>
+        <option value="Pereira">Pereira</option>
+        <option value="Cali">Cali</option>
+      </select>
+
+      <input type="hidden" name="categoria" value="backend" id="categoria" />
+    </form>
+  </body>
+</html>

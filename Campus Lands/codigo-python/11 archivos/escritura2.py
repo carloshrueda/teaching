@@ -1,4 +1,8 @@
-fd = open("codigo/archivos/prueba2.txt", "w")
-lst = ["Primera linea\n", "Segunda linea\n"]
-fd.writelines(lst)
+
+fd = open("Python/archivos/data2.txt", "w")
+
+lcad = ["Los pollitos dicen\n", "Yo seré la mascota"]
+fd.writelines(lcad)
+
+
 fd.close()

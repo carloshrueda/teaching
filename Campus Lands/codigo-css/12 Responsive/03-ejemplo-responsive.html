@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo 2</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Para escritorio */
+      .col-1 {
+        width: calc(100% / 12 * 1);
+      }
+      .col-2 {
+        width: calc(100% / 12 * 2);
+      }
+      .col-3 {
+        width: calc(100% / 12 * 3);
+      }
+      .col-4 {
+        width: calc(100% / 12 * 4);
+      }
+      .col-5 {
+        width: calc(100% / 12 * 5);
+      }
+      .col-6 {
+        width: calc(100% / 12 * 6);
+      }
+      .col-7 {
+        width: calc(100% / 12 * 7);
+      }
+      .col-8 {
+        width: calc(100% / 12 * 8);
+      }
+      .col-9 {
+        width: calc(100% / 12 * 9);
+      }
+      .col-10 {
+        width: calc(100% / 12 * 10);
+      }
+      .col-11 {
+        width: calc(100% / 12 * 11);
+      }
+      .col-12 {
+        width: calc(100% / 12 * 12);
+      }
+
+      [class*="col-"] {
+        float: left;
+        padding: 15px;
+        /* border: 1px solid black; */
+      }
+
+      html {
+        font-family: "Lucida Sans", sans-serif;
+      }
+      .header {
+        background-color: #9933cc;
+        color: #fff;
+        padding: 15px;
+      }
+      .menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      .menu li {
+        background-color: #33b5e5;
+        color: #fff;
+        padding: 8px;
+        margin-bottom: 7px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      }
+      .menu li:hover {
+        background-color: #0099cc;
+      }
+      .aside {
+        background-color: #33b5e5;
+        padding: 15px;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      }
+      .footer {
+        background-color: #0099cc;
+        color: #fff;
+        text-align: center;
+        font-size: 12px;
+        padding: 15px;
+      }
+
+      @media (max-width: 768px) {
+        [class*="col-"] {
+            width: 100vw;
+        }
+        html {
+            font-size: clamp(12px, 3vw, 16px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Chania</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-3 menu">
+        <ul>
+          <li>El Vuelo</li>
+          <li>La Ciudad</li>
+          <li>La Isla</li>
+          <li>La Comida</li>
+        </ul>
+      </div>
+
+      <div class="col-6">
+        <h1>La Ciudad</h1>
+        <p>
+          Chania es la capital de la región de Chania en la isla de Creta. La
+          ciudad se puede dividir en dos partes, el casco antiguo y la ciudad
+          moderna.
+        </p>
+      </div>
+
+      <div class="col-3 right">
+        <div class="aside">
+          <h2>¿Qué?</h2>
+          <p>Chania es una ciudad en la isla de Creta.</p>
+          <h2>¿Dónde?</h2>
+          <p>Creta es una isla griega en el mar Mediterráneo.</p>
+          <h2>¿Cómo?</h2>
+          <p>Puedes llegar al aeropuerto de Chania desde toda Europa.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 footer">
+      <p>
+        Cambia el tamaño de la ventana del navegador para ver cómo el contenido
+        responde al cambio de tamaño.
+      </p>
+    </div>
+  </body>
+</html>

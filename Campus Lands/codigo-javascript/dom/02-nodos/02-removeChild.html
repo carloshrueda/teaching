@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        border: blue solid 1px;
+    }
+    .parent {
+        border: mediumorchid solid 1px;
+        margin: 30px;
+    }
+    .textRojo {
+        color: red;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="parent">
+            <p>Adoro el silencio en clase</p>
+            <p class="mensaje">Hola, soy un campper</p>
+        </div>
+
+    </div>
+    <br>
+    <button id="appendChild" onclick="addElementos()">Agregar div</button>
+    
+    <button id="removeChild" onclick="removeElementos()">Remover div</button>
+</body>
+<script>
+    const container = document.querySelector(".container");
+    const parent = document.querySelector(".parent");
+    let cont = 0;
+
+    function addElementos() {
+        const div = document.createElement("div");
+        div.innerHTML = `<p onclick='mensaje(${++cont})' class='textRojo'>Div con nuevo parrafo ${cont}</p>`;
+        container.appendChild(div);
+    }
+
+    function mensaje(cont) {
+        alert("Soy un parrafo " + cont)
+    }
+
+    function removeElementos() {
+        const cantDivs = document.querySelectorAll(".container div").length;
+        // alert(cantDivs);
+        // if (cantDivs > 1) {
+        //     const div = container.querySelectorAll("div")[cantDivs - 1];
+        //     // alert(div.outerHTML);
+        //     container.removeChild(div);
+        //     --cont;
+        // }
+
+        container.removeChild(container.lastChild);
+        --cont;
+    }
+</script>
+</html>
